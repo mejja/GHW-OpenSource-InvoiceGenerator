@@ -2,7 +2,9 @@
 import { useState } from "react";
 import InvoiceInfoHeader from "./InvoiceInfoHeader";
 import InvoiceItemsTable from "./InvoiceItemsTable";
+import InvoicePDF from "./InvoicePDF";
 import TempInvoiceDetailsOutput from "./Temp/TempInvoiceDetailsOutput";
+
 
 const InvoiceDetailsPage = () => {
   const [invoiceInfoHeader, setInvoiceInfoHeader] = useState({
@@ -22,7 +24,7 @@ const InvoiceDetailsPage = () => {
   
   const handleRowDataChange = (data) => {
   setRowItemData(data);
-  }
+  };
 
   return (
     <>
@@ -46,6 +48,12 @@ const InvoiceDetailsPage = () => {
       </div>
       </div>
       {/* InvoiceItemsTable End  */}
+
+      {/*InvoicePDF start  */}
+      <InvoicePDF invoiceInfoHeaderData={invoiceInfoHeader} 
+        invoiceItemsTableData={rowItemData}
+        /> 
+       {/*InvoicePDF End  */}
 
       {/* TempInvoiceDetailsOutput start  */}
       <div className="card w-auto my-8 bg-neutral">

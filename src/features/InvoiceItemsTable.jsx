@@ -56,6 +56,8 @@ const InvoiceItemsTable = ({onRowDataChange}) => {
     },
     {
       headerName: "Total",
+      field: "total",
+      editable: false,
       valueGetter: "data.quantity * data.price",
       width: 150,
     },
