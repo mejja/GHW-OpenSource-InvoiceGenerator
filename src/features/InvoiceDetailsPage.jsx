@@ -18,6 +18,12 @@ const InvoiceDetailsPage = () => {
     setInvoiceInfoHeader({ ...invoiceInfoHeader, [name]: value });
   };
 
+  const [rowItemData, setRowItemData] = useState([]);
+  
+  const handleRowDataChange = (data) => {
+  setRowItemData(data);
+  }
+
   return (
     <>
       {/*InvoiceInfoHeader start */}
@@ -36,14 +42,17 @@ const InvoiceDetailsPage = () => {
       {/* InvoiceItemsTable Start  */}
       <div className="card w-full bg-base-300 shadow-xl my-4">
       <div className="flex justify-center items-center m-6">
-      <InvoiceItemsTable />
+      <InvoiceItemsTable  onRowDataChange={handleRowDataChange}/>
       </div>
       </div>
       {/* InvoiceItemsTable End  */}
 
       {/* TempInvoiceDetailsOutput start  */}
       <div className="card w-auto my-8 bg-neutral">
-        <TempInvoiceDetailsOutput invoiceInfoHeaderData={invoiceInfoHeader} />
+        <TempInvoiceDetailsOutput 
+          invoiceInfoHeaderData={invoiceInfoHeader} 
+          invoiceItemsTableData={rowItemData}
+          />
       </div>
       {/* TempInvoiceDetailsOutput End  */}
     </>
